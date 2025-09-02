@@ -370,8 +370,8 @@ export const WebRTCTextSender: React.FC<WebRTCTextSenderProps> = ({ onRestart, o
               onPaste={handlePaste}
               disabled={!connection.isPeerConnected}
               placeholder={connection.isPeerConnected 
-                ? "在这里编辑文字内容...&#10;&#10;💡 支持实时同步编辑，对方可以看到你的修改&#10;💡 可以直接粘贴图片 (Ctrl+V)"
-                : "等待对方加入P2P网络...&#10;&#10;📡 建立连接后即可开始输入文字"
+                ? "在这里编辑文字内容; 💡 支持实时同步编辑，对方可以实时看到你的修改; 💡 可以直接粘贴图片 (Ctrl+V)"
+                : "等待对方加入网络; 📡 建立连接后即可开始输入文字"
               }
               className={`w-full h-40 px-4 py-3 border rounded-lg resize-none text-slate-700 ${
                 connection.isPeerConnected 
