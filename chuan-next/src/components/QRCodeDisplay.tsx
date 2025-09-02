@@ -7,14 +7,12 @@ interface QRCodeDisplayProps {
   value: string;
   size?: number;
   className?: string;
-  title?: string;
 }
 
 export default function QRCodeDisplay({ 
   value, 
   size = 200, 
   className = "",
-  title = "扫码传输"
 }: QRCodeDisplayProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [error, setError] = useState<string>('');
@@ -53,7 +51,6 @@ export default function QRCodeDisplay({
 
   return (
     <div className={className}>
-      {title}
       <div className="flex justify-center">
         <canvas 
           ref={canvasRef}

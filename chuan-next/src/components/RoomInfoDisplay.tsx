@@ -18,7 +18,6 @@ interface RoomInfoDisplayProps {
   // 文案配置
   title: string; // 如 "取件码生成成功！" 或 "房间码生成成功！"
   subtitle: string; // 如 "分享以下信息给接收方" 或 "分享以下信息给观看方"
-  codeLabel: string; // 如 "取件码" 或 "房间代码"
   copyButtonText: string; // 如 "复制取件码" 或 "复制房间代码"
   copyButtonColor?: string; // 复制按钮颜色，如 'bg-emerald-500 hover:bg-emerald-600'
   qrButtonText: string; // 如 "使用手机扫码快速访问" 或 "使用手机扫码快速观看"
@@ -40,7 +39,6 @@ export default function RoomInfoDisplay({
   codeColor = 'from-emerald-600 to-teal-600',
   title,
   subtitle,
-  codeLabel,
   copyButtonText,
   copyButtonColor = 'bg-emerald-500 hover:bg-emerald-600',
   qrButtonText,
@@ -68,7 +66,6 @@ export default function RoomInfoDisplay({
       <div className="flex flex-col lg:flex-row lg:items-start gap-6 lg:gap-8 mb-8">
         {/* 左侧：代码 */}
         <div className="flex-1">
-          <label className="block text-sm font-medium text-slate-700 mb-3">{codeLabel}</label>
           <div className="flex flex-col items-center rounded-xl border border-slate-200 p-6 h-40 justify-center bg-slate-50">
             <div className={`text-2xl font-bold font-mono bg-gradient-to-r ${codeColor} bg-clip-text text-transparent tracking-wider`}>
               {code}

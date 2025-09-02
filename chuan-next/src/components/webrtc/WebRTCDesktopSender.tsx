@@ -268,7 +268,6 @@ export default function WebRTCDesktopSender({ className, onConnectionChange }: W
               codeColor="from-purple-600 to-indigo-600"
               title="房间码生成成功！"
               subtitle="分享以下信息给观看方"
-              codeLabel="房间代码"
               copyButtonText="复制房间代码"
               copyButtonColor="bg-purple-500 hover:bg-purple-600"
               qrButtonText="使用手机扫码快速观看"

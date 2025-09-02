@@ -342,7 +342,6 @@ export function WebRTCFileUpload({
           codeColor="from-emerald-600 to-teal-600"
           title="取件码生成成功！"
           subtitle="分享以下信息给接收方"
-          codeLabel="取件码"
           copyButtonText="复制取件码"
           copyButtonColor="bg-emerald-500 hover:bg-emerald-600"
           qrButtonText="使用手机扫码快速访问"
