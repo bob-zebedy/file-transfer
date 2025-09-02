@@ -146,14 +146,14 @@ export const WebRTCFileTransfer: React.FC = () => {
       }
 
       const code = data.code;
-      console.log('房间创建成功，取件码:', code);
+      console.log('房间创建成功，共享码:', code);
       
-      // 先连接WebRTC作为发送方，再设置取件码
+      // 先连接WebRTC作为发送方，再设置共享码
       // 这样可以确保UI状态与连接状态同步
       await connect(code, 'sender');
       setPickupCode(code);
       
-      showToast(`房间创建成功，取件码: ${code}`, "success");
+      showToast(`房间创建成功，共享码: ${code}`, "success");
     } catch (error) {
       console.error('创建房间失败:', error);
       let errorMessage = '创建房间失败';
@@ -524,10 +524,10 @@ export const WebRTCFileTransfer: React.FC = () => {
     }
   };
 
-  // 复制取件码
+  // 复制共享码
   const copyCode = () => {
     navigator.clipboard.writeText(pickupCode);
-    showToast("取件码已复制", "success");
+    showToast("共享码已复制", "success");
   };
 
   // 复制链接

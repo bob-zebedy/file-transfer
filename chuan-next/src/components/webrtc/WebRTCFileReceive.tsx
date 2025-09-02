@@ -61,22 +61,22 @@ export function WebRTCFileReceive({
   const [isValidating, setIsValidating] = useState(false);
   const { showToast } = useToast();
 
-  // 使用传入的取件码或本地状态的取件码
+  // 使用传入的共享码或本地状态的共享码
   const displayPickupCode = propPickupCode || pickupCode;
 
-  // 验证取件码是否存在
+  // 验证共享码是否存在
   const validatePickupCode = async (code: string): Promise<boolean> => {
     try {
       setIsValidating(true);
       
-      console.log('开始验证取件码:', code);
+      console.log('开始验证共享码:', code);
       const response = await fetch(`/api/room-info?code=${code}`);
       const data = await response.json();
       
       console.log('验证响应:', { status: response.status, data });
       
       if (!response.ok || !data.success) {
-        const errorMessage = data.message || '取件码验证失败';
+        const errorMessage = data.message || '共享码验证失败';
         
         // 显示toast错误提示
         showToast(errorMessage, 'error');
@@ -85,10 +85,10 @@ export function WebRTCFileReceive({
         return false;
       }
       
-      console.log('取件码验证成功:', data.room);
+      console.log('共享码验证成功:', data.room);
       return true;
     } catch (error) {
-      console.error('验证取件码时发生错误:', error);
+      console.error('验证共享码时发生错误:', error);
       const errorMessage = '网络错误，请检查连接后重试';
       
       // 显示toast错误提示
@@ -105,7 +105,7 @@ export function WebRTCFileReceive({
     if (pickupCode.length === 6) {
       const code = pickupCode.toUpperCase();
       
-      // 先验证取件码是否存在
+      // 先验证共享码是否存在
       const isValid = await validatePickupCode(code);
       if (isValid) {
         // 验证成功后再进行WebRTC连接
@@ -126,7 +126,7 @@ export function WebRTCFileReceive({
     if (error && !isConnecting && !isConnected && !isValidating) {
       // 延迟重置，确保用户能看到错误信息
       const timer = setTimeout(() => {
-        console.log('重置取件码输入');
+        console.log('重置共享码输入');
         setPickupCode('');
       }, 3000); // 3秒后重置
       
@@ -146,7 +146,7 @@ export function WebRTCFileReceive({
               </div>
               <div>
                 <h3 className="text-lg font-semibold text-slate-800">文件接收中</h3>
-                <p className="text-sm text-slate-600">取件码: {displayPickupCode}</p>
+                <p className="text-sm text-slate-600">共享码: {displayPickupCode}</p>
               </div>
             </div>
             
@@ -296,7 +296,7 @@ export function WebRTCFileReceive({
     );
   }
 
-  // 显示取件码输入界面  
+  // 显示共享码输入界面  
   return (
     <div>
       {/* 功能标题和状态 */}
@@ -306,8 +306,8 @@ export function WebRTCFileReceive({
             <Download className="w-5 h-5 text-white" />
           </div>
           <div>
-            <h2 className="text-lg font-semibold text-slate-800">输入取件码</h2>
-            <p className="text-sm text-slate-600">请输入6位取件码来获取文件</p>
+            <h2 className="text-lg font-semibold text-slate-800">输入共享码</h2>
+            <p className="text-sm text-slate-600">请输入6位共享码来获取文件</p>
           </div>
         </div>
         
@@ -323,7 +323,7 @@ export function WebRTCFileReceive({
             <Input
               value={pickupCode}
               onChange={handleInputChange}
-              placeholder="请输入取件码"
+              placeholder="请输入共享码"
               className="text-center text-2xl sm:text-3xl tracking-[0.3em] sm:tracking-[0.5em] font-mono h-12 sm:h-16 border-2 border-slate-200 rounded-xl focus:border-emerald-500 focus:ring-emerald-500 bg-white/80 backdrop-blur-sm pb-2 sm:pb-4"
               maxLength={6}
               disabled={isValidating || isConnecting}
@@ -374,7 +374,7 @@ export function WebRTCFileReceive({
       {/* 使用提示 */}
       <div className="mt-6 p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl border border-blue-200">
         <p className="text-sm text-slate-600 text-center">
-          💡 <span className="font-medium">提示：</span>取件码由发送方提供，有效期为24小时
+          💡 <span className="font-medium">提示：</span>共享码由发送方提供，有效期为24小时
         </p>
       </div>
     </div>

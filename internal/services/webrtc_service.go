@@ -297,7 +297,7 @@ func (ws *WebRTCService) CreateNewRoom() string {
 	return code
 }
 
-// generatePickupCode 生成6位取件码 - 统一规则：只使用大写字母和数字，排除0和O避免混淆
+// generatePickupCode 生成6位共享码 - 统一规则：只使用大写字母和数字，排除0和O避免混淆
 func (ws *WebRTCService) generatePickupCode() string {
 	// 只使用大写字母和数字，排除容易混淆的字符：数字0和字母O
 	chars := "123456789ABCDEFGHIJKLMNPQRSTUVWXYZ"

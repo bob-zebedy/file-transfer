@@ -14,7 +14,7 @@ export const useRoomConnection = ({ connect, isConnecting, isConnected }: UseRoo
   const validateRoomCode = (code: string): string | null => {
     const trimmedCode = code.trim();
     if (!trimmedCode || trimmedCode.length !== 6) {
-      return '请输入正确的6位取件码';
+      return '请输入正确的6位共享码';
     }
     return null;
   };
@@ -33,13 +33,13 @@ export const useRoomConnection = ({ connect, isConnecting, isConnected }: UseRoo
       if (result.message?.includes('expired')) {
         errorMessage = '房间已过期，请联系发送方重新创建';
       } else if (result.message?.includes('not found')) {
-        errorMessage = '房间不存在，请检查取件码是否正确';
+        errorMessage = '房间不存在，请检查共享码是否正确';
       }
       throw new Error(errorMessage);
     }
     
     if (!result.sender_online) {
-      throw new Error('发送方不在线，请确认取件码是否正确或联系发送方');
+      throw new Error('发送方不在线，请确认共享码是否正确或联系发送方');
     }
 
     return result;
@@ -51,7 +51,7 @@ export const useRoomConnection = ({ connect, isConnecting, isConnected }: UseRoo
     } else if (error.message.includes('timeout')) {
       return '请求超时，请重试';
     } else if (error.message.includes('HTTP 404')) {
-      return '房间不存在，请检查取件码';
+      return '房间不存在，请检查共享码';
     } else if (error.message.includes('HTTP 500')) {
       return '服务器错误，请稍后重试';
     } else {
@@ -62,7 +62,7 @@ export const useRoomConnection = ({ connect, isConnecting, isConnected }: UseRoo
   // 加入房间 (接收模式)
   const joinRoom = useCallback(async (code: string) => {
     console.log('=== 加入房间 ===');
-    console.log('取件码:', code);
+    console.log('共享码:', code);
     
     // 验证输入
     const validationError = validateRoomCode(code);

@@ -184,7 +184,7 @@ export const WebRTCTextReceiver: React.FC<WebRTCTextReceiverProps> = ({
   return (
     <div className="space-y-6">
       {!hasAnyConnection ? (
-        // 输入取件码界面
+        // 输入共享码界面
         <div>
           <div className="flex items-center justify-between mb-6 sm:mb-8">
             <div className="flex items-center space-x-3">
@@ -192,8 +192,8 @@ export const WebRTCTextReceiver: React.FC<WebRTCTextReceiverProps> = ({
                 <Download className="w-5 h-5 text-white" />
               </div>
               <div>
-                <h2 className="text-lg font-semibold text-slate-800">输入取件码</h2>
-                <p className="text-sm text-slate-600">请输入6位取件码来获取实时文字内容</p>
+                <h2 className="text-lg font-semibold text-slate-800">输入共享码</h2>
+                <p className="text-sm text-slate-600">请输入6位共享码来获取实时文字内容</p>
               </div>
             </div>
             
@@ -210,7 +210,7 @@ export const WebRTCTextReceiver: React.FC<WebRTCTextReceiverProps> = ({
                 <Input
                   value={inputCode}
                   onChange={(e) => setInputCode(e.target.value.replace(/[^123456789ABCDEFGHIJKLMNPQRSTUVWXYZabcdefghijklmnpqrstuvwxyz]/g, ''))}
-                  placeholder="请输入取件码"
+                  placeholder="请输入共享码"
                   className="text-center text-2xl sm:text-3xl tracking-[0.3em] sm:tracking-[0.5em] font-mono h-12 sm:h-16 border-2 border-slate-200 rounded-xl focus:border-emerald-500 focus:ring-emerald-500 bg-white/80 backdrop-blur-sm pb-2 sm:pb-4"
                   maxLength={6}
                   disabled={isValidating || isAnyConnecting}
@@ -257,7 +257,7 @@ export const WebRTCTextReceiver: React.FC<WebRTCTextReceiverProps> = ({
               </div>
               <div>
                 <h3 className="text-lg font-semibold text-slate-800">实时文字内容</h3>
-                <p className="text-sm text-slate-600">取件码: {pickupCode}</p>
+                <p className="text-sm text-slate-600">共享码: {pickupCode}</p>
               </div>
             </div>
             

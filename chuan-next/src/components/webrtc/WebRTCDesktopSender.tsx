@@ -164,7 +164,7 @@ export default function WebRTCDesktopSender({ className, onConnectionChange }: W
             </div>
           </div>
         ) : (
-          // 房间已创建，显示取件码和等待界面
+          // 房间已创建，显示共享码和等待界面
           <div className="space-y-6">
             {/* 功能标题和状态 */}
             <div className="flex items-center justify-between mb-6">

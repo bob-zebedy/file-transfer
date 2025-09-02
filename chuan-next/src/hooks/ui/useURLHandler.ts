@@ -132,7 +132,7 @@ export const useURLHandler = <T = 'send' | 'receive'>({
     // 只在首次加载且URL中有对应功能类型时处理
     if (!hasProcessedInitialUrl && type === featureType && urlMode && ['send', 'receive'].includes(urlMode)) {
       console.log(`=== 处理初始URL参数 [${featureType}] ===`);
-      console.log('URL模式:', urlMode, '类型:', type, '取件码:', code);
+      console.log('URL模式:', urlMode, '类型:', type, '共享码:', code);
       
       // 立即标记为已处理，防止重复
       urlProcessedRef.current = true;
@@ -144,7 +144,7 @@ export const useURLHandler = <T = 'send' | 'receive'>({
       
       // 自动加入房间（只在receive模式且有code时）
       if (code && urlMode === 'receive' && onAutoJoinRoom) {
-        console.log('URL中有取件码，自动加入房间');
+        console.log('URL中有共享码，自动加入房间');
         onAutoJoinRoom(code);
       }
     }

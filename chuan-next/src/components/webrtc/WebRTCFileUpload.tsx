@@ -276,7 +276,7 @@ export function WebRTCFileUpload({
                 className="button-primary text-white px-6 sm:px-8 py-3 rounded-xl font-medium flex-1 min-w-0 shadow-lg"
               >
                 <Upload className="w-5 h-5 mr-2" />
-                生成取件码
+                生成共享码
               </Button>
               <Button
                 onClick={onAddMoreFiles}
@@ -332,7 +332,7 @@ export function WebRTCFileUpload({
         </div>
       </div>
 
-      {/* 取件码展示 */}
+      {/* 共享码展示 */}
       {pickupCode && pickupLink && (
         <RoomInfoDisplay
           code={pickupCode}
@@ -340,9 +340,9 @@ export function WebRTCFileUpload({
           icon={FileText}
           iconColor="from-emerald-500 to-teal-500"
           codeColor="from-emerald-600 to-teal-600"
-          title="取件码生成成功！"
+          title="共享码生成成功！"
           subtitle="分享以下信息给接收方"
-          copyButtonText="复制取件码"
+          copyButtonText="复制共享码"
           copyButtonColor="bg-emerald-500 hover:bg-emerald-600"
           qrButtonText="使用手机扫码快速访问"
           linkButtonText="复制链接"

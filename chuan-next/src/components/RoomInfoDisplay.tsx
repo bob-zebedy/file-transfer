@@ -16,9 +16,9 @@ interface RoomInfoDisplayProps {
   codeColor?: string; // 代码文字渐变色，如 'from-emerald-600 to-teal-600'
   
   // 文案配置
-  title: string; // 如 "取件码生成成功！" 或 "房间码生成成功！"
+  title: string; // 如 "共享码生成成功！" 或 "房间码生成成功！"
   subtitle: string; // 如 "分享以下信息给接收方" 或 "分享以下信息给观看方"
-  copyButtonText: string; // 如 "复制取件码" 或 "复制房间代码"
+  copyButtonText: string; // 如 "复制共享码" 或 "复制房间代码"
   copyButtonColor?: string; // 复制按钮颜色，如 'bg-emerald-500 hover:bg-emerald-600'
   qrButtonText: string; // 如 "使用手机扫码快速访问" 或 "使用手机扫码快速观看"
   linkButtonText: string; // 如 "复制取件链接" 或 "复制观看链接"

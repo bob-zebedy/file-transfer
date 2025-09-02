@@ -152,7 +152,7 @@ export const WebRTCTextSender: React.FC<WebRTCTextSenderProps> = ({ onRestart, o
         }, 1000);
       }
       
-      showToast(`消息房间创建成功！取件码: ${code}`, "success");
+      showToast(`消息房间创建成功！共享码: ${code}`, "success");
     } catch (error) {
       console.error('创建房间失败:', error);
       showToast(error instanceof Error ? error.message : '创建房间失败', "error");
@@ -263,10 +263,10 @@ export const WebRTCTextSender: React.FC<WebRTCTextSenderProps> = ({ onRestart, o
     });
   };
 
-  // 复制取件码
+  // 复制共享码
   const copyCode = () => {
     navigator.clipboard.writeText(pickupCode);
-    showToast("取件码已复制", "success");
+    showToast("共享码已复制", "success");
   };
 
   const pickupLink = pickupCode ? `${typeof window !== 'undefined' ? window.location.origin : ''}?type=message&mode=receive&code=${pickupCode}` : '';
@@ -321,7 +321,7 @@ export const WebRTCTextSender: React.FC<WebRTCTextSenderProps> = ({ onRestart, o
           </div>
         </div>
       ) : (
-        // 房间已创建，显示取件码和文本传输界面
+        // 房间已创建，显示共享码和文本传输界面
         <div className="space-y-6">
           {/* 功能标题和状态 */}
       {/* 功能标题和状态 */}
@@ -431,16 +431,16 @@ export const WebRTCTextSender: React.FC<WebRTCTextSenderProps> = ({ onRestart, o
             </div>
           )}
 
-          {/* 取件码显示 */}
+          {/* 共享码显示 */}
           <RoomInfoDisplay
             code={pickupCode}
             link={pickupLink}
             icon={MessageSquare}
             iconColor="from-emerald-500 to-teal-500"
             codeColor="from-emerald-600 to-teal-600"
-            title="取件码生成成功！"
+            title="共享码生成成功！"
             subtitle="分享以下信息给接收方"
-            copyButtonText="复制取件码"
+            copyButtonText="复制共享码"
             copyButtonColor="bg-emerald-500 hover:bg-emerald-600"
             qrButtonText="使用手机扫码快速访问"
             linkButtonText="复制链接"
