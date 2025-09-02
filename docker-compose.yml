@@ -1,0 +1,7 @@
+services:
+  file-transfer: 
+    build: .
+    container_name: file-transfer
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:8002:8080"
